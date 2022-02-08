@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>测试文本</p>
+    <img id="img"
+      src="http://imgoss.cnu.cc/2201/16/d11195a741ca3b7187b9bb27b33e8503.jpg?width=6329&height=4219&x-oss-process=style/cover280"
+      alt="">
+  </div>
+</body>
+<script>
+  document.getElementById('img').addEventListener('load', () => {
+    console.log('img onload');
+  })
+
+  window.addEventListener('load', () => {
+    console.log('window onload');
+  })
+
+  window.addEventListener('DOMContentLoaded', () => {
+    console.log('window DOMContentLoaded');
+  })
+</script>
+
+</html>

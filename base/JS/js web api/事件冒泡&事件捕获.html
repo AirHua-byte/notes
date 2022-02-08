@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="parent">
+    <button id="child">click me</button>
+  </div>
+  <script>
+    const parent = document.getElementById('parent')
+    const child = document.getElementById('child')
+
+    child.addEventListener('click', (e) => {
+      console.log('1 click child');
+      e.stopPropagation()
+    })
+
+    parent.addEventListener('click', (e) => {
+      console.log('2 click parent');
+    })
+
+    document.body.addEventListener('click', (e) => {
+      console.log('3 click body');
+    })
+
+    document.addEventListener('click', (e) => {
+      console.log('4 click document');
+    })
+
+    window.addEventListener('click', (e) => {
+      console.log('5 click window');
+    })
+  </script>
+</body>
+
+</html>

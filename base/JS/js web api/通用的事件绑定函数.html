@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="img">
+      <a href="#">
+        <img src="http://imgoss.cnu.cc/2201/25/736031deeccb3fbfa78a771040121ce1.jpg?x-oss-process=style/content" alt="">
+      </a>
+    </div>
+    <div class="img">
+      <a href="#">
+        <img src="http://imgoss.cnu.cc/2201/25/736031deeccb3fbfa78a771040121ce1.jpg?x-oss-process=style/content" alt="">
+      </a>
+    </div>
+    <div class="img">
+      <a href="#">
+        <img src="http://imgoss.cnu.cc/2201/25/736031deeccb3fbfa78a771040121ce1.jpg?x-oss-process=style/content" alt="">
+      </a>
+    </div>
+    <button id="btn">加载更多</button>
+  </div>
+</body>
+<script>
+  function bindEvent(elem, type, selector, fn) {
+    if (fn == null) {
+      fn = selector
+      selector = null
+    }
+    elem.addEventListener(type, event => {
+      const target = event.target
+      if (selector) {
+        // 代理绑定 matches正则匹配
+        if (target.matches(selector)) {
+          fn.call(target, event)
+        }
+      } else {
+        // 普通绑定
+        fn.call(target, event)
+      }
+    })
+  }
+
+  const btn = document.getElementById('btn')
+  bindEvent(btn, 'click', function (event) {
+    console.log(this.innerHTML);
+  })
+
+  const app = document.getElementById('app')
+  // 这里注意回调函数需要使用ES5写法，下面的this才指向目标元素
+  bindEvent(app, 'click', 'img', function (event) {
+    console.log(this.src);
+  })
+</script>
+
+</html>

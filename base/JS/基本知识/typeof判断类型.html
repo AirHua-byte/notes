@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  // typeof 能判断所有值类型
+  let a;           console.log(typeof a) // undefined
+  a = 'string';    console.log(typeof a) // string
+  a = 1;           console.log(typeof a) // number
+  a = true;        console.log(typeof a) // boolean
+  a = Symbol('a'); console.log(typeof a) // Symbol
+
+  // typeof 能判断函数
+  function fn() {}
+  console.log(typeof fn);
+
+  // typeof 只能判断出引用类型 不能细分
+  a = null;        console.log(typeof a); // object
+  a = {a: 100};    console.log(typeof a); // object
+  a = ['1', '2'];  console.log(typeof a); // object
+
+  // instanceof
+  console.log(a instanceof Array); // true
+</script>
+</html>

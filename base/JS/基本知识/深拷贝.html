@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+  /**
+   * 深拷贝
+   * 1. 注意判断值类型和引用类型
+   * 2. 注意判断是数组还是对象
+   * 3. 注意用hasOwnProperty()保证不是原型属性
+   * 4. 递归
+   */
+  function cloneDeep(obj) {
+    if (typeof obj !== 'object' || obj == null) {
+      return obj
+    }
+
+    let result
+    if (obj instanceof Array) result = []
+    else result = {}
+
+    for(key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        result[key] = cloneDeep(obj[key])
+      }
+    }
+
+    return result
+  }
+
+  let obj1 = {
+    name: 'airhua',
+    age: '20',
+    score: {
+      math: [90, 85, 86],
+      english: [70, 85, 80]
+    }
+  }
+  let obj2 = cloneDeep(obj1)
+  obj2.score.math[1] = 99
+  obj2.name = 'air'
+
+  console.log(obj2);
+  console.log(obj1);
+</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app {
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #000;
+      border-radius: 10%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" draggable="true">拖拽移动</div>
+</body>
+<script>
+  let app = document.getElementById('app')
+  /* let timer = null
+  app.addEventListener('drag', (e) => {
+    if (timer) {
+      return
+    }
+    timer = setTimeout(() => {
+      console.log(e.clientX, e.clientY);
+      timer = null
+    }, 500)
+  }) */
+
+  /**
+   * 通用版节流函数
+   * @param {function} fn - 要被执行的方法, 相隔多长时间要被执行的方法
+   * @param {number} delay - 间隔时间, 相隔多长时间调用一次对应方法
+   * @return function
+   */
+  function throttle(fn, delay = 300) {
+    let timer = null
+
+    return function () {
+      if (timer) {
+        return
+      }
+      timer = setTimeout(() => {
+        fn.apply(this, arguments)
+        timer = null
+      }, delay)
+    }
+  }
+
+  app.addEventListener('drag', throttle(function (e) {
+    console.log(e.clientX, e.clientY);
+  }, 100))
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img {
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="img">
+      <a href="#">
+        <img src="http://imgoss.cnu.cc/2201/25/736031deeccb3fbfa78a771040121ce1.jpg?x-oss-process=style/content" alt="">
+      </a>
+    </div>
+    <div class="img">
+      <a href="#">
+        <img src="http://imgoss.cnu.cc/2201/25/736031deeccb3fbfa78a771040121ce1.jpg?x-oss-process=style/content" alt="">
+      </a>
+    </div>
+    <div class="img">
+      <a href="#">
+        <img src="http://imgoss.cnu.cc/2201/25/736031deeccb3fbfa78a771040121ce1.jpg?x-oss-process=style/content" alt="">
+      </a>
+    </div>
+    <button>加载更多</button>
+  </div>
+</body>
+<script>
+  const app = document.getElementById('app')
+  app.addEventListener('click', (e) => {
+    if (e.target.matches('img')) {
+      console.log(e.target);
+    }
+  })
+</script>
+
+</html>

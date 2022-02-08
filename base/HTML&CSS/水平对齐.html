@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      width: 500px;
+    }
+    .item {
+      background-color: #eee;
+    }
+    .div1 .item {
+      text-align: center;
+    }
+    .div2 .item {
+      width: 200px;
+      margin: auto;
+      text-align: center;
+    }
+    .div3 {
+      position: relative;
+      height: 20px;
+    }
+    .div3 .item {
+      width: 200px;
+      position: absolute;
+      left: 50%;
+      margin-left: -100px;
+      text-align: center;
+    }
+    .div4 {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container div1">
+    <div class="item">this is a text</div>
+  </div>
+  <div class="container div2">
+    <div class="item">this is a block text</div>
+  </div>
+  <div class="container div3">
+    <div class="item">this is a absolute text</div>
+  </div>
+  <div class="container div4">
+    <div class="item">this is a absolute text</div>
+  </div>
+</body>
+</html>

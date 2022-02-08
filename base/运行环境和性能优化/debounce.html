@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text" id="input">
+</body>
+<script>
+  let input = document.getElementById('input')
+  /* let timer = null
+  input.addEventListener('keyup', (e) => {
+    if (timer) {
+      clearInterval(timer)
+    }
+    timer = setTimeout(() => {
+      console.log(e.target.value);
+    }, 1000);
+  }) */
+
+  /**
+   * 通用版防抖函数
+   * @param {function} fn - 要被执行的方法, 相隔多长时间要被执行的方法
+   * @param {number} delay - 间隔时间, 相隔多长时间调用一次对应方法
+   * @return function
+   */
+  function debounce(fn, delay = 500) {
+    let timer = null
+
+    return function () {
+      if (timer) {
+        clearInterval(timer)
+      }
+      timer = setTimeout(() => {
+        fn.apply(this, arguments)
+        timer = null
+      }, delay)
+    }
+  }
+
+  input.addEventListener('keyup', debounce(function (e) {
+    console.log(e.target.value);
+  }, 1000))
+</script>
+
+</html>

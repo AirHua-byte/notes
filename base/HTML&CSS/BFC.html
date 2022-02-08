@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 300px;
+    }
+    .aside {
+      width: 100px;
+      height: 150px;
+      float: left;
+      background: rgb(158, 42, 42);
+    }
+    .main {
+      height: 200px;
+      background-color: rgb(8, 132, 136);
+      overflow: hidden;
+    }
+
+    .parent {
+      border: 1px solid #000;
+      width: 300px;
+      overflow: hidden;
+    }
+    .child {
+      border: 1px solid red;
+      width: 100px;
+      height: 100px;
+      float: left;
+    }
+
+    .p {
+      width: 200px;
+      height: 50px;
+      margin: 50px 0;
+      background-color: rgb(18, 129, 46);
+    }
+    .wrap {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    Block format context 块级格式化上下文
+    一块独立渲染区域, 内部元素的渲染不会影响边界以外的元素
+
+    BFC常见形成条件
+    float不是none
+    position是absolute或fixed
+    overflow不是visible
+    display是flex inline-block等
+   -->
+   
+   <!-- 自适应两栏布局 -->
+   <div class="aside"></div>
+   <div class="main"></div>
+
+   <br><br><br>
+   <!-- 清除内部浮动 -->
+   <div class="parent">
+     <div class="child"></div>
+   </div>
+
+   <!-- margin重叠 -->
+   <div class="p"></div>
+   <div class="wrap">
+     <div class="p"></div>
+   </div>
+</body>
+</html>
